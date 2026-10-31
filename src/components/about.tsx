@@ -7,15 +7,27 @@ export function About() {
   return (
     <section className="about section-shell" id="about" aria-labelledby="about-title">
       <div className="about-grid">
-        <Reveal className="founder-placeholder">
+        <Reveal className="founder-visual-card">
           {site.about.founderImage ? (
-            <img
-              src={site.about.founderImage}
-              alt={`${site.founder}, Founder of A_KON Digital Studio`}
-              loading="lazy"
-              width="600"
-              height="800"
-            />
+            <div className="founder-image-wrapper">
+              <img
+                src={site.about.founderImage}
+                alt={`${site.founder}, Founder, Web Designer & Developer at ${site.brand}`}
+                loading="lazy"
+                width="600"
+                height="800"
+                className="founder-photo"
+              />
+              <div className="founder-image-overlay" />
+              <div className="founder-image-badge">
+                <span className="lime-dot" aria-hidden="true" />
+                <span>FOUNDER · WEB DESIGNER & DEVELOPER</span>
+              </div>
+              <div className="founder-image-footer">
+                <span className="founder-name-mark">{site.founder}</span>
+                <span className="founder-studio-tag">{site.brand}</span>
+              </div>
+            </div>
           ) : (
             <div className="placeholder-inner">
               <div className="placeholder-header">
@@ -57,7 +69,7 @@ export function About() {
             <p>{site.about.description}</p>
             <div className="about-founder">
               <span className="founder-title">{site.founder}</span>
-              <span className="founder-sub">Founder, A_KON Digital Studio</span>
+              <span className="founder-sub">Founder, Web Designer & Developer</span>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
