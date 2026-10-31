@@ -33,7 +33,7 @@ export const site = {
   ],
   about: {
     headline: ['DESIGN-DRIVEN.', 'TECHNOLOGY-POWERED.'],
-    description: 'Ankit is the Founder of A_KON Digital Studio. His mission is to bridge the gap between creative design and technical execution, crafting digital experiences that are both visually engaging and genuinely useful for ambitious businesses.',
+    description: 'Our mission is to bridge the gap between creative design and technical execution, crafting digital experiences that are both visually engaging and genuinely useful for ambitious businesses.',
     skills: ['HTML & CSS', 'JavaScript', 'React & TypeScript', 'UI/UX Design', 'Photoshop', 'Digital Branding'],
     founderImage: '/assets/ankit-founder.jpg',
     social: { github: '', linkedin: '' },
