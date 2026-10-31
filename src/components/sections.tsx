@@ -1,0 +1,10 @@
+export { Reveal, SectionIntro } from './reveal';
+export { Hero } from './hero';
+export { Philosophy } from './philosophy';
+export { SelectedWork } from './selected-work';
+export { Services } from './services';
+export { About } from './about';
+export { Process } from './process';
+export { WhyAkon } from './why-akon';
+export { Contact } from './contact';
+export { SiteFooter, SiteFooter as Footer } from './site-footer';
