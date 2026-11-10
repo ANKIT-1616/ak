@@ -6,3 +6,5 @@ dist/
 backend/.dev.vars
 backend/.wrangler/
 .DS_Store
+
+.vercel
