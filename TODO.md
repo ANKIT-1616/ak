@@ -38,12 +38,14 @@
 
 ## 6. Implement the contact experience and footer
 
-- Preserve HAVE AN IDEA? LET’S BUILD IT. and the supplied supporting copy.
-- Include First Name, Last Name, Business Name, Email, Phone, Service Required, Project Budget, and Project Description.
-- Add client-side validation, accessible error messages, and clear submission feedback.
-- Provide a working WhatsApp enquiry alternative using a configurable placeholder number.
-- Do not create a fake submission flow; show an honest configuration message when no endpoint is present.
-- Build a footer with A_KON DIGITAL STUDIO, the supplied tagline, navigation, services, social placeholders, India, and the current copyright year.
+- Validate and store enquiries through the Cloudflare Worker and Supabase migration before showing the success state.
+- Open a WhatsApp draft with every submitted detail only after storage succeeds; do not claim that the visitor sent it.
+- Keep Resend optional and server-side; distinguish provider acceptance from confirmed email delivery.
+- Configure WhatsApp in `src/content/site.ts` and LinkedIn/GitHub in `site.footer.socials`; only show working links.
+- Protect `/admin` with Supabase Auth and a Worker-side allowlisted admin user ID; never expose service-role credentials or enquiry rows to the frontend database client.
+- Build a footer with A_KON DIGITAL STUDIO, the supplied tagline, navigation, services, configured social links, India, and the current copyright year.
+
+Backend setup and free-plan operating limits are documented in `BACKEND_SETUP.md`.
 
 ## 7. Add motion, accessibility, SEO, and route metadata
 
@@ -54,7 +56,8 @@
 
 ## 8. Verify the deliverable
 
-- Run diagnostics, the production build, and a local HTTP readiness check.
+- Run contact/Worker tests, diagnostics, the production build, and a local HTTP readiness check.
 - Resolve TypeScript/build errors, broken links, console errors, accessibility issues, and responsive layout problems.
 - Confirm `/manus-routes.json` returns valid route JSON rather than SPA fallback HTML.
 - Commit the implementation to the canonical main branch and report remaining owner-provided details needed for final configuration.
+- Before going live, apply the Supabase migration, create the admin user, configure provider secrets/origins, and deploy the Worker while remaining on free plans.

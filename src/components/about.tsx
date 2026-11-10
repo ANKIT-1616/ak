@@ -43,10 +43,10 @@ export function About() {
               </div>
               <div className="placeholder-footer">
                 <span className="placeholder-status">
-                  <span className="lime-dot" aria-hidden="true" /> AVAILABLE FOR Q4/Q1
+                  <span className="lime-dot" aria-hidden="true" /> AVAILABLE FOR SELECT PROJECTS
                 </span>
                 <span className="placeholder-note">
-                  Founder photograph<br />to be configured
+                  Personal attention<br />at every step
                 </span>
               </div>
             </div>
@@ -79,25 +79,27 @@ export function About() {
               ))}
             </div>
           </Reveal>
-          <div className="social-row">
-            <PlaceholderSocial
-              icon={<Github size={17} aria-hidden="true" />}
-              label="GitHub"
-              href={site.about.social.github}
-            />
-            <PlaceholderSocial
-              icon={<Linkedin size={17} aria-hidden="true" />}
-              label="LinkedIn"
-              href={site.about.social.linkedin}
-            />
-          </div>
+          {(site.about.social.github || site.about.social.linkedin) && (
+            <div className="social-row">
+              <ProfileLink
+                icon={<Github size={17} aria-hidden="true" />}
+                label="GitHub"
+                href={site.about.social.github}
+              />
+              <ProfileLink
+                icon={<Linkedin size={17} aria-hidden="true" />}
+                label="LinkedIn"
+                href={site.about.social.linkedin}
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>
   );
 }
 
-function PlaceholderSocial({ icon, label, href }: { icon: ReactNode; label: string; href: string }) {
+function ProfileLink({ icon, label, href }: { icon: ReactNode; label: string; href: string }) {
   return href ? (
     <a
       className="social-link"
@@ -110,10 +112,6 @@ function PlaceholderSocial({ icon, label, href }: { icon: ReactNode; label: stri
       <span>{label}</span>
     </a>
   ) : (
-    <span className="social-link is-placeholder" title={`${label} link to be configured in site.ts`}>
-      {icon}
-      <span>{label}</span>
-      <small>CONFIGURE</small>
-    </span>
+    null
   );
 }

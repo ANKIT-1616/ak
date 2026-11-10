@@ -4,7 +4,7 @@
 
 Build a complete, single-page React/TypeScript/Vite portfolio website for A_KON Digital Studio using the supplied brand language and the existing Wix website as the content reference. Preserve the existing information architecture while replacing the generic presentation with a premium, editorial digital studio experience.
 
-The build will remain static-first. No backend, database, customer-email service, or fake submission endpoint will be introduced. The contact form will validate in the browser, provide accessible feedback, and expose a configurable WhatsApp alternative. Missing owner-specific values (founder image, GitHub, LinkedIn, email, phone, WhatsApp number, and form endpoint) will remain explicit placeholders in configuration rather than invented data.
+The public portfolio remains static-first and submits contact enquiries through the existing serverless backend in `backend/`: Cloudflare Workers Free handles validation, rate limiting, and admin API requests; Supabase Free provides private Postgres storage and Auth; Resend is optional for studio email alerts. After a successful save, visitors can continue through their selected email or WhatsApp channel. No paid integrations or secrets in frontend code are required.
 
 ## Design direction
 
@@ -68,7 +68,8 @@ Electric lime #C5FF45 is the signature color, used only for availability, active
 - Keep all editable owner details in `src/content/site.ts` and use explicit placeholder values where the brief does not provide real data.
 - Build the main page from semantic sections with stable anchor IDs: `work`, `services`, `about`, `process`, and `contact`.
 - Present the Mooch Saloon project using verified live-site details only. Use a CSS-built project visual treatment plus a configurable image slot until owner-approved screenshots are available; do not fabricate metrics, testimonials, or results.
-- Add accessible expandable service rows, keyboard-visible focus states, a mobile menu, local form validation, a WhatsApp link assembled from configuration, and a non-deceptive submission state that explains when no endpoint is configured.
+- Add accessible expandable service rows, keyboard-visible focus states, a mobile menu, client/server form validation, and a non-deceptive submission state when the backend is not configured.
+- Keep enquiry records private with Supabase RLS and allowlisted Supabase Auth admin access through the Worker.
 - Add initial metadata, Open Graph/Twitter tags, a `public/manus-routes.json` route manifest, and `public/robots.txt` / `public/sitemap.xml` placeholders that can be finalized once the production origin is configured.
 
 ## Project structure

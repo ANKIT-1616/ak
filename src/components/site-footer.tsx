@@ -45,26 +45,28 @@ export function SiteFooter() {
           links={site.services.map((service) => [service.title, '#services'])}
         />
 
-        <div>
-          <span className="detail-label">CONNECT</span>
-          <div className="footer-links">
-            <FooterSocial
-              label="Instagram"
-              href={site.footer.socials.Instagram}
-              icon={<Instagram size={15} aria-hidden="true" />}
-            />
-            <FooterSocial
-              label="LinkedIn"
-              href={site.footer.socials.LinkedIn}
-              icon={<Linkedin size={15} aria-hidden="true" />}
-            />
-            <FooterSocial
-              label="GitHub"
-              href={site.footer.socials.GitHub}
-              icon={<Github size={15} aria-hidden="true" />}
-            />
+        {Object.values(site.footer.socials).some(Boolean) && (
+          <div>
+            <span className="detail-label">CONNECT</span>
+            <div className="footer-links">
+              <FooterSocial
+                label="Instagram"
+                href={site.footer.socials.Instagram}
+                icon={<Instagram size={15} aria-hidden="true" />}
+              />
+              <FooterSocial
+                label="LinkedIn"
+                href={site.footer.socials.LinkedIn}
+                icon={<Linkedin size={15} aria-hidden="true" />}
+              />
+              <FooterSocial
+                label="GitHub"
+                href={site.footer.socials.GitHub}
+                icon={<Github size={15} aria-hidden="true" />}
+              />
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="footer-meta-col">
           <span className="detail-label">LOCATION</span>
@@ -124,10 +126,6 @@ function FooterSocial({
       <span>{label}</span>
     </a>
   ) : (
-    <span className="is-placeholder" title={`${label} to be configured`}>
-      {icon}
-      <span>{label}</span>
-      <small>CONFIGURE</small>
-    </span>
+    null
   );
 }

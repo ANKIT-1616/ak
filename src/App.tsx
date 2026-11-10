@@ -9,12 +9,15 @@ import { Process } from './components/process';
 import { WhyAkon } from './components/why-akon';
 import { Contact } from './components/contact';
 import { SiteFooter } from './components/site-footer';
+import { AdminDashboard } from './components/admin';
 
 export default function App() {
   const [cursorVisible, setCursorVisible] = useState(false);
   const [cursorHovered, setCursorHovered] = useState(false);
 
   useEffect(() => {
+    if (window.location.pathname.replace(/\/+$/, '') === '/admin') return;
+
     const isCoarse = window.matchMedia('(pointer: coarse)').matches;
     if (isCoarse) return;
 
@@ -54,6 +57,10 @@ export default function App() {
       document.removeEventListener('mouseleave', onPointerLeave);
     };
   }, []);
+
+  if (window.location.pathname.replace(/\/+$/, '') === '/admin') {
+    return <AdminDashboard />;
+  }
 
   return (
     <div className="app-shell">

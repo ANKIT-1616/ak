@@ -49,8 +49,16 @@ export const site = {
     copy: 'Direct communication and personal attention keep the important things close. We build with business-first thinking, transparent pricing and a long-term view.',
     points: ['Direct communication', 'Personal attention', 'Business-first thinking', 'Transparent pricing', 'Long-term collaboration'],
   },
-  contact: { headline: ['HAVE AN IDEA?', 'LET’S BUILD IT.'], supporting: 'Every meaningful digital experience starts with a conversation.', email: '', phone: '', whatsappNumber: '', formEndpoint: '' },
-  footer: { tagline: 'Independent by nature. Creative by design.', socials: { Instagram: '', LinkedIn: '', GitHub: '' } },
+  contact: {
+    supporting: "Whether you're building something new, improving an existing website, or exploring an idea, let's talk about it.",
+    availability: 'AVAILABLE FOR SELECT PROJECTS.',
+    email: 'akon25880@gmail.com',
+    whatsappNumber: '+918000406352',
+  },
+  footer: {
+    tagline: 'Independent by nature. Creative by design.',
+    socials: { Instagram: '' as string, LinkedIn: '' as string, GitHub: '' as string },
+  },
 } as const;
 
 export type Service = (typeof site.services)[number];

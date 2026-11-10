@@ -1,0 +1,18 @@
+name = "akon-contact-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-30"
+workers_dev = true
+
+[observability]
+enabled = true
+
+[vars]
+ALLOWED_ORIGINS = "http://localhost:3000"
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "16161031"
+
+  [ratelimits.simple]
+  limit = 5
+  period = 60
